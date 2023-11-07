@@ -5,6 +5,8 @@ using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public int walkSpeed = 1;
+
     Rigidbody rb;
     PhotonView view;
 
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
             float vert = Input.GetAxis("Vertical");
             float horz = Input.GetAxis("Horizontal");
 
-            rb.velocity = new Vector3(horz, rb.velocity.y, vert);
+            rb.velocity = new Vector3(horz, rb.velocity.y, vert) * walkSpeed;
 
             if (Input.GetKeyDown(KeyCode.Space))
             {

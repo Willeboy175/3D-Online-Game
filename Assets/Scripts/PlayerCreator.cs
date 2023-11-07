@@ -13,6 +13,6 @@ public class PlayerCreator : MonoBehaviour
 
     void CreatePlayer()
     {
-        PhotonNetwork.Instantiate("Player", new Vector3(0, 1, 0), Quaternion.identity);
+        PhotonNetwork.Instantiate("Player", new Vector3(0, 1.2f, 0), Quaternion.identity);
     }
 }
