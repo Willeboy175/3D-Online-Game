@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class PlayerCreator : MonoBehaviour
 {
+    public Vector3 spawnPos = new Vector3(0, 2, 0);
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,6 @@ public class PlayerCreator : MonoBehaviour
 
     void CreatePlayer()
     {
-        PhotonNetwork.Instantiate("Player", new Vector3(0, 1.2f, 0), Quaternion.identity);
+        PhotonNetwork.Instantiate("Player", spawnPos, Quaternion.identity);
     }
 }
