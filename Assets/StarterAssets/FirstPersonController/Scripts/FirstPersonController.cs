@@ -91,32 +91,28 @@ namespace StarterAssets
 
 		private void Awake()
 		{
-			if (view.IsMine)
-			{
-                // get a reference to our main camera
-                if (_mainCamera == null)
-                {
-                    _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-                }
+            // get a reference to our main camera
+            if (_mainCamera == null)
+            {
+                _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
 		}
 
 		private void Start()
 		{
-			if (view.IsMine)
-			{
-                _controller = GetComponent<CharacterController>();
-                _input = GetComponent<StarterAssetsInputs>();
+            _controller = GetComponent<CharacterController>();
+            _input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
-                _playerInput = GetComponent<PlayerInput>();
+            _playerInput = GetComponent<PlayerInput>();
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
-                // reset our timeouts on start
-                _jumpTimeoutDelta = JumpTimeout;
-                _fallTimeoutDelta = FallTimeout;
-            }
+            // reset our timeouts on start
+            _jumpTimeoutDelta = JumpTimeout;
+            _fallTimeoutDelta = FallTimeout;
+
+			view = GetComponent<PhotonView>();
 		}
 
 		private void Update()
