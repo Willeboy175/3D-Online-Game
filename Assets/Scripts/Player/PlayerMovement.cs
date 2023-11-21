@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerMovement : InputController
+public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
