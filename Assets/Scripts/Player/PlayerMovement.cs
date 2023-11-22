@@ -5,118 +5,52 @@ using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")]
-    public float moveSpeed;
+    public float walkSpeed = 4f;
+    public float maxVelocityChange = 10f;
 
-    public float groundDrag;
-
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
-    bool readyToJump;
-
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
-
-    [Header("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
-
-    [Header("Ground Check")]
-    public float playerHeight;
-    public LayerMask whatIsGround;
-    bool grounded;
-
-    public Transform orientation;
-
-    float horizontalInput;
-    float verticalInput;
-
-    Vector3 moveDirection;
-
-    Rigidbody rb;
-    
+    private Vector2 input;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-
-        readyToJump = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        input = new Vector2(InputController.HorizontalAxis(), InputController.VerticalAxis());
+        input.Normalize();
+    }
 
-        MyInput();
-        SpeedControl();
+    void FixedUpdate()
+    {
+        rb.AddForce(CalculateMovement(walkSpeed), ForceMode.VelocityChange);
+    }
 
-        // handle drag
-        if (grounded)
-            rb.drag = groundDrag;
+    Vector3 CalculateMovement(float speed)
+    {
+        //Sets target velocity and rotates it in the direction of the player
+        Vector3 targetVelocity = new Vector3(input.x, 0, input.y);
+        targetVelocity = transform.TransformDirection(targetVelocity);
+
+        targetVelocity *= speed;
+
+        Vector3 velocity = rb.velocity;
+
+        if (input.magnitude > 0.5f)
+        {
+            Vector3 velocityChange = targetVelocity - velocity;
+
+            velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+            velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+
+            return velocityChange;
+        }
         else
-            rb.drag = 0;
-    }
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-    private void MyInput()
-    {
-        horizontalInput = InputController.HorizontalAxis();
-        verticalInput = InputController.VerticalAxis();
-
-        // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
-            readyToJump = false;
-
-            Jump();
-
-            Invoke(nameof(ResetJump), jumpCooldown);
+            return new Vector3();
         }
-    }
-
-    private void MovePlayer()
-    {
-        // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        // on ground
-        if (grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-        // in air
-        else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-    }
-
-    private void SpeedControl()
-    {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        // limit velocity if needed
-        if (flatVel.magnitude > moveSpeed)
-        {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-        }
-    }
-
-    private void Jump()
-    {
-        // reset y velocity
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
-    private void ResetJump()
-    {
-        readyToJump = true;
     }
 }

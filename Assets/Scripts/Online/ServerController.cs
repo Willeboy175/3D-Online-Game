@@ -22,10 +22,4 @@ public class ServerController : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
         print("Connected to server in " + PhotonNetwork.CloudRegion + ".");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
