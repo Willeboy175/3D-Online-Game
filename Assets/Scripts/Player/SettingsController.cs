@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SavedInputs : MonoBehaviour
+public class SettingsController : MonoBehaviour
 {
     public static Dictionary<string, KeyCode> keyBinds = new Dictionary<string, KeyCode>();
 
-    //Resets keybinds to default
-    //Also creates the dictionary
+    //Creates the dictionary
     public static void CreateKeyBinds()
     {
         keyBinds.Add("forward", KeyCode.W);
@@ -34,6 +33,7 @@ public class SavedInputs : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    //Loads keybinds from PlayerPrefs
     public static void LoadKeyBinds()
     {
         string[] keys = new string[keyBinds.Count];
@@ -55,6 +55,7 @@ public class SavedInputs : MonoBehaviour
         }
     }
 
+    //Resets keybinds
     public static void ResetKeyBinds()
     {
         keyBinds.Clear();
@@ -67,5 +68,9 @@ public class SavedInputs : MonoBehaviour
         keyBinds.Add("sprint", KeyCode.LeftShift);
     }
 
-
+    //Deletes all PlayerPrefs
+    public static void ClearPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
