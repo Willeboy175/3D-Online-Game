@@ -6,8 +6,8 @@ using UnityEditor;
 
 public class PlayerCreator : MonoBehaviour
 {
-    public GameObject _gameObject;
-    public Vector3 spawnPos = new Vector3(0, 2, 0);
+    public Transform spawnPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class PlayerCreator : MonoBehaviour
 
     void CreatePlayer()
     {
-        GameObject player = PhotonNetwork.Instantiate("Player", spawnPos, Quaternion.identity);
+        GameObject player = PhotonNetwork.Instantiate("Player", spawnPos.position, Quaternion.identity);
         player.GetComponent<PlayerSetup>().IsLocalPlayer();
     }
 }
