@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class PlayerCreator : MonoBehaviour
 {
-    public GameObject gameObject;
+    public GameObject _gameObject;
     public Vector3 spawnPos = new Vector3(0, 2, 0);
     // Start is called before the first frame update
     void Start()

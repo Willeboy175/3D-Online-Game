@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 4
+  sprintSpeed: 12
   maxVelocityChange: 10
 --- !u!114 &3155827570449248795
 MonoBehaviour:
@@ -228,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 2058002519026299613}
-  camera: {fileID: 2354060816753259545}
+  playerCamera: {fileID: 2354060816753259545}
 --- !u!136 &1413060275877646781
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -261,7 +262,7 @@ Rigidbody:
   m_GameObject: {fileID: 7018793379405686642}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 2
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}

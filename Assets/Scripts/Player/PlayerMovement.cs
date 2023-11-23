@@ -6,10 +6,13 @@ using Photon.Pun;
 public class PlayerMovement : MonoBehaviour
 {
     public float walkSpeed = 4f;
+    public float sprintSpeed = 12f;
     public float maxVelocityChange = 10f;
 
     private Vector2 input;
     private Rigidbody rb;
+
+    private bool sprinting;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +25,29 @@ public class PlayerMovement : MonoBehaviour
     {
         input = new Vector2(InputController.HorizontalAxis(), InputController.VerticalAxis());
         input.Normalize();
+
+        if (Input.GetKey(SettingsController.keyBinds["sprint"]))
+        {
+            sprinting = true;
+        }
+        else
+        {
+            sprinting = false;
+        }
     }
 
     void FixedUpdate()
     {
-        rb.AddForce(CalculateMovement(walkSpeed), ForceMode.VelocityChange);
+        if (input.magnitude > 0.5f)
+        {
+            rb.AddForce(CalculateMovement(sprinting ? sprintSpeed : walkSpeed), ForceMode.VelocityChange);
+        }
+        else
+        {
+            var velocity1 = rb.velocity;
+            velocity1 = new Vector3(velocity1.x * 0.2f * Time.deltaTime, velocity1.y, velocity1.z * 0.2f * Time.deltaTime);
+            rb.velocity = velocity1;
+        }
     }
 
     Vector3 CalculateMovement(float speed)
