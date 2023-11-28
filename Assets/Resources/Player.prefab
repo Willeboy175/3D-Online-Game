@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 7558093459287616237}
   - component: {fileID: 6855870236251812532}
   - component: {fileID: 2058002519026299613}
+  - component: {fileID: 4361369965444498167}
   - component: {fileID: 3155827570449248795}
   - component: {fileID: 1413060275877646781}
   - component: {fileID: 3202006411541976851}
@@ -220,6 +221,18 @@ MonoBehaviour:
   airControl: 0.5
   jumpHeight: 5
   grounded: 0
+--- !u!114 &4361369965444498167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018793379405686642}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae463fe2e4a3d84ba38d965674edc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3155827570449248795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4e47ae798481a49ad73765450d35f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offline: 0
   playerMovement: {fileID: 2058002519026299613}
+  itemPickup: {fileID: 4361369965444498167}
   playerCamera: {fileID: 2354060816753259545}
 --- !u!136 &1413060275877646781
 CapsuleCollider:
