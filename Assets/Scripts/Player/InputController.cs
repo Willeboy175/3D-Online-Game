@@ -9,7 +9,6 @@ public class InputController : MonoBehaviour
     void Start()
     {
         SettingsController.CreateKeyBinds();
-        SettingsController.ResetKeyBinds();
         SettingsController.SaveKeyBinds();
         SettingsController.LoadKeyBinds();
     }
@@ -40,6 +39,10 @@ public class InputController : MonoBehaviour
         if (SettingsController.keyBinds["sprint"] == KeyCode.LeftShift && Input.GetKeyDown(SettingsController.keyBinds["sprint"]))
         {
             print("sprint");
+        }
+        if (SettingsController.keyBinds["interact"] == KeyCode.E && Input.GetKeyDown(SettingsController.keyBinds["interact"]))
+        {
+            print("interact");
         }
     }
 

@@ -15,6 +15,7 @@ public class SettingsController : MonoBehaviour
         keyBinds.Add("left", KeyCode.A);
         keyBinds.Add("jump", KeyCode.Space);
         keyBinds.Add("sprint", KeyCode.LeftShift);
+        keyBinds.Add("interact", KeyCode.E);
     }
 
     //Saves the current keybinds to a PlayerPrefs
