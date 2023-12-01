@@ -410,9 +410,8 @@ GameObject:
   - component: {fileID: 617977570}
   - component: {fileID: 617977569}
   - component: {fileID: 617977568}
-  - component: {fileID: 617977572}
-  - component: {fileID: 617977567}
   - component: {fileID: 617977571}
+  - component: {fileID: 617977567}
   m_Layer: 6
   m_Name: Trigger
   m_TagString: Untagged
@@ -515,23 +514,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 617977566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a70242062f3e8ca4cadfaccd6a3d42db, type: 3}
+  m_Script: {fileID: 11500000, guid: aeb58d51f89c491429c7cd33c292bdea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
---- !u!114 &617977572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617977566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a70242062f3e8ca4cadfaccd6a3d42db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
+  promptmessage: Use Trigger
 --- !u!1 &752897189
 GameObject:
   m_ObjectHideFlags: 0
