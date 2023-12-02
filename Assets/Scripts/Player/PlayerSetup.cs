@@ -6,7 +6,8 @@ public class PlayerSetup : MonoBehaviour
 {
     public bool offline = false;
     public PlayerMovement playerMovement;
-    public ItemPickup itemPickup;
+    public PlayerInteract playerInteract;
+    public PlayerUI playerUI;
     public GameObject playerCamera;
 
     void Start()
@@ -20,7 +21,8 @@ public class PlayerSetup : MonoBehaviour
     public void IsLocalPlayer()
     {
         playerMovement.enabled = true;
-        itemPickup.enabled = true;
+        playerInteract.enabled = true;
+        playerInteract.enabled = true;
         playerCamera.SetActive(true);
     }
 }

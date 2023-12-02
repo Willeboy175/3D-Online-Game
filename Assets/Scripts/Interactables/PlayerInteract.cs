@@ -7,16 +7,19 @@ public class PlayerInteract : MonoBehaviour
     public float distance = 3f;
     public LayerMask layerMask;
     public Transform playerCamera;
+    private PlayerUI playerUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerUI = GetComponent<PlayerUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //playerUI.UpdateText(string.Empty);
+
         //Create ray at the center of the camera
         Ray ray = new Ray(playerCamera.position, playerCamera.forward);
         Debug.DrawRay(ray.origin, ray.direction * distance);
@@ -27,7 +30,13 @@ public class PlayerInteract : MonoBehaviour
         {
             if (hitInfo.collider.GetComponent<Interactable>() != null)
             {
-                Debug.Log(hitInfo.collider.GetComponent<Interactable>().promptmessage);
+                Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
+                //playerUI.UpdateText(interactable.promptmessage);
+
+                if (Input.GetKeyDown(SettingsController.keyBinds["interact"]))
+                {
+                    interactable.BaceInteract();
+                }
             }
         }
     }
