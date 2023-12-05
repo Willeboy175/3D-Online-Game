@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ItemTool : ItemData
 {
-
+    public string type;
 }
