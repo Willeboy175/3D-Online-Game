@@ -18,11 +18,12 @@ public class PlayerSetup : MonoBehaviour
         }
     }
 
+    //Enables necessary components on the local player
     public void IsLocalPlayer()
     {
         playerMovement.enabled = true;
         playerInteract.enabled = true;
-        playerInteract.enabled = true;
+        playerUI.enabled = true;
         playerCamera.SetActive(true);
     }
 }

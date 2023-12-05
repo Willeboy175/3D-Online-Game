@@ -18,22 +18,27 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //playerUI.UpdateText(string.Empty);
-
+        //Empties promptText
         //Create ray at the center of the camera
+        //Stores collision information
+        playerUI.UpdateText(string.Empty);
         Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        RaycastHit hitInfo;
+
         Debug.DrawRay(ray.origin, ray.direction * distance);
 
-        //Stores collision information
-        RaycastHit hitInfo;
-        if (Physics.Raycast(ray, out hitInfo, distance, layerMask))
+        
+        if (Physics.Raycast(ray, out hitInfo, distance, layerMask)) //Checks if the ray has hit a valid object and stores it
         {
-            if (hitInfo.collider.GetComponent<Interactable>() != null)
+            
+            if (hitInfo.collider.GetComponent<Interactable>() != null) //checks if object has Interactable component
             {
+                //Saves to Interactable variable
+                //Updates the promptText
                 Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
-                //playerUI.UpdateText(interactable.promptmessage);
+                playerUI.UpdateText(interactable.promptmessage);
 
-                if (Input.GetKeyDown(SettingsController.keyBinds["interact"]))
+                if (Input.GetKeyDown(SettingsController.keyBinds["interact"])) //If player presses interact key
                 {
                     interactable.BaceInteract();
                 }

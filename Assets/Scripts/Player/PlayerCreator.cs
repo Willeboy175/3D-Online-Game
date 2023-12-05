@@ -16,6 +16,8 @@ public class PlayerCreator : MonoBehaviour
 
     void CreatePlayer()
     {
+        //Instantiates player prefab
+        //Runs IsLocalPlayer on the instantiated player prefab
         GameObject player = PhotonNetwork.Instantiate("Player", spawnPos.position, Quaternion.identity);
         player.GetComponent<PlayerSetup>().IsLocalPlayer();
     }

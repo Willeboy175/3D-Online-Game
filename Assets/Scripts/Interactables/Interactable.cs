@@ -7,7 +7,7 @@ public abstract class Interactable : MonoBehaviour
     //Message displayed when player looking at an interactable
     public string promptmessage;
 
-    //Fuction to be called by the player
+    //Function to be called by the player
     public void BaceInteract()
     {
         Interact();
