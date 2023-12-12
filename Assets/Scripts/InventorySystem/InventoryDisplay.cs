@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryDisplay : MonoBehaviour
@@ -8,6 +9,11 @@ public class InventoryDisplay : MonoBehaviour
     public ItemDisplay[] slots;
 
     private void Start()
+    {
+        UpdateInventory();
+    }
+
+    private void Update()
     {
         UpdateInventory();
     }

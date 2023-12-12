@@ -15,6 +15,7 @@ public class DynamicInventory : ScriptableObject
         {
             if (items[i] == null)
             {
+                Debug.Log("Add Item");
                 items[i] = itemToAdd;
                 return true;
             }
