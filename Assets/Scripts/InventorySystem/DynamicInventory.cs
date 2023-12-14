@@ -29,5 +29,4 @@ public class DynamicInventory : ScriptableObject
         Debug.Log("No space in the inventory");
         return false;
     }
-
 }

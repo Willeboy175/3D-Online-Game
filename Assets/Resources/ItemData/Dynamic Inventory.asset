@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: Dynamic Inventory
   m_EditorClassIdentifier: 
   maxItems: 10
-  items: []
+  items:
+  - itemType: {fileID: 0}
+  - itemType: {fileID: 0}
+  - itemType: {fileID: 0}
+  - itemType: {fileID: 0}
+  - itemType: {fileID: 0}
+  - itemType: {fileID: 0}
+  - itemType: {fileID: 0}
+  - itemType: {fileID: 0}
+  - itemType: {fileID: 0}
+  - itemType: {fileID: 0}
