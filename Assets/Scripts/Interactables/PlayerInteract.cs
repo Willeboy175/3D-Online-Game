@@ -27,18 +27,19 @@ public class PlayerInteract : MonoBehaviour
 
         Debug.DrawRay(ray.origin, ray.direction * distance);
 
-        
-        if (Physics.Raycast(ray, out hitInfo, distance, layerMask)) //Checks if the ray has hit a valid object and stores it
+        //Checks if the ray has hit a valid object and stores it
+        if (Physics.Raycast(ray, out hitInfo, distance, layerMask))
         {
-            
-            if (hitInfo.collider.GetComponent<Interactable>() != null) //checks if object has Interactable component
+            //Checks if object has Interactable component
+            if (hitInfo.collider.GetComponent<Interactable>() != null)
             {
                 //Saves to Interactable variable
                 //Updates the promptText
                 Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
                 playerUI.UpdateText(interactable.promptmessage);
 
-                if (Input.GetKeyDown(SettingsController.keyBinds["interact"])) //If player presses interact key
+                //If player presses interact key
+                if (Input.GetKeyDown(SettingsController.keyBinds["interact"]))
                 {
                     interactable.BaceInteract();
                 }

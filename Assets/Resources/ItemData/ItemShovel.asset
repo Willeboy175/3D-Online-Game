@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bbc41dbd1a7f764db46d42ff47faeef, type: 3}
+  m_Script: {fileID: 11500000, guid: 0105632aaa0ebdc4fa9724a76a3d17df, type: 3}
   m_Name: ItemShovel
   m_EditorClassIdentifier: 
   itemName: Shovel
   icon: {fileID: 21300000, guid: b8625ddc6f2c92d4282e40350b66fcda, type: 3}
-  model: {fileID: 4169698474936265552, guid: a8d1317027e9eb24b8544ccf6085320d, type: 3}
+  model: {fileID: 4169698474936265552, guid: a87ab568b3e76b94b80e54e3e968adc7, type: 3}
   description: 
+  cooldown: 0
+  tier: 0
