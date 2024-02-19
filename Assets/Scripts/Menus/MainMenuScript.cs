@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
     public GameObject mainMenu;
-    public GameObject saveMenu;
+    public GameObject newGameMenu;
+    public GameObject loadGameMenu;
     public GameObject optionsMenu;
     public GameObject quitMenu;
 
@@ -19,10 +20,16 @@ public class MainMenuScript : MonoBehaviour
         }
     }
 
+    public void NewGame()
+    {
+        mainMenu.SetActive(false);
+        newGameMenu.SetActive(true);
+    }
+
     public void LoadGame()
     {
         mainMenu.SetActive(false);
-        saveMenu.SetActive(true);
+        loadGameMenu.SetActive(true);
     }
 
     public void Options()
@@ -45,7 +52,8 @@ public class MainMenuScript : MonoBehaviour
     public void Back()
     {
         mainMenu.SetActive(true);
-        saveMenu.SetActive(false);
+        newGameMenu.SetActive(false);
+        loadGameMenu.SetActive(false);
         optionsMenu.SetActive(false);
         quitMenu.SetActive(false);
     }
