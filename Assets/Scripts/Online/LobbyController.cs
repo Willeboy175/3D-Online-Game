@@ -3,16 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LobbyController : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     int maxPlayers = 4;
+    public Toggle multiToggle;
 
     public void JoinGame()
     {
-        PhotonNetwork.JoinRandomRoom();
-        print("trying to join a room");
+        if (multiToggle.isOn)
+        {
+            PhotonNetwork.JoinRandomRoom();
+            print("trying to join a room");
+        }
+        else
+        {
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene("GameScene");
+        }
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)

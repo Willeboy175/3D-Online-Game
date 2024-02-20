@@ -6402,6 +6402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayers: 4
+  multiToggle: {fileID: 0}
 --- !u!114 &1153114191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6593,6 +6594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayers: 4
+  multiToggle: {fileID: 556305515}
 --- !u!114 &1204673692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6941,6 +6943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayers: 4
+  multiToggle: {fileID: 0}
 --- !u!114 &1228816570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7471,6 +7474,7 @@ MonoBehaviour:
   loadGameMenu: {fileID: 435335392}
   optionsMenu: {fileID: 706905852}
   quitMenu: {fileID: 1567097378}
+  multiplayer: {fileID: 0}
 --- !u!224 &1321151522
 RectTransform:
   m_ObjectHideFlags: 0

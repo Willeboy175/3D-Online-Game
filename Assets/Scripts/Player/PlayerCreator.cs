@@ -7,6 +7,7 @@ using UnityEditor;
 public class PlayerCreator : MonoBehaviour
 {
     public Transform spawnPos;
+    public GameObject playerObject;
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +17,17 @@ public class PlayerCreator : MonoBehaviour
 
     void CreatePlayer()
     {
-        //Instantiates player prefab
-        //Runs IsLocalPlayer on the instantiated player prefab
-        GameObject player = PhotonNetwork.Instantiate("Player", spawnPos.position, Quaternion.identity);
-        player.GetComponent<PlayerSetup>().IsLocalPlayer();
+        if (PhotonNetwork.IsConnected)
+        {
+            //Instantiates player prefab
+            //Runs IsLocalPlayer on the instantiated player prefab
+            GameObject player = PhotonNetwork.Instantiate("Player", spawnPos.position, Quaternion.identity);
+            player.GetComponent<PlayerSetup>().IsLocalPlayer();
+        }
+        else
+        {
+            GameObject player = Instantiate(playerObject, spawnPos.position, Quaternion.identity);
+            player.GetComponent<PlayerSetup>().offline = true;
+        }
     }
 }

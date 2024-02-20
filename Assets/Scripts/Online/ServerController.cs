@@ -13,7 +13,6 @@ public class ServerController : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        startbutton.SetActive(false);
         connectingText.SetActive(true);
         PhotonNetwork.ConnectUsingSettings();
         print("Connecting...");
@@ -21,7 +20,6 @@ public class ServerController : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        startbutton.SetActive(true);
         connectingText.SetActive(false);
         PhotonNetwork.AutomaticallySyncScene = true;
         print("Connected to server in " + PhotonNetwork.CloudRegion + ".");

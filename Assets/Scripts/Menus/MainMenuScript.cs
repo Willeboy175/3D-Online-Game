@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject loadGameMenu;
     public GameObject optionsMenu;
     public GameObject quitMenu;
+    public Toggle multiplayer;
 
     // Update is called once per frame
     void Update()
