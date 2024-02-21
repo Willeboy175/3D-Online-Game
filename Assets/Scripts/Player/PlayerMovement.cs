@@ -19,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 playerInput;
     private Rigidbody rb;
 
-    private bool sprinting;
-    private bool jumping;
+    private bool sprinting = false;
+    private bool jumping = false;
 
     [SerializeField]
     private bool grounded = false;
@@ -33,14 +33,59 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    void Awake()
+    {
+        controls = new PlayerControls();
+        controls.Player.Enable();
+    }
+
+    public void OnEnable()
+    {
+        controls.Player.Enable();
+
+        controls.Player.Jump.performed += OnJump;
+        controls.Player.Sprint.performed += OnSprint;
+    }
+
+    public void OnDisable()
+    {
+        controls.Player.Disable();
+
+        controls.Player.Jump.performed -= OnJump;
+        controls.Player.Sprint.performed -= OnSprint;
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        jumping = !jumping;
+        Debug.Log("jump");
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        sprinting = !sprinting;
+
+        if (sprinting)
+        {
+            Debug.Log("Start sprinting");
+        }
+
+        if (sprinting == false)
+        {
+            Debug.Log("Stop sprinting");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         //playerInput = new Vector2(InputController.HorizontalAxis(), InputController.VerticalAxis());
         //playerInput.Normalize();
 
-        sprinting = Input.GetKey(SettingsController.keyBinds["sprint"]);
-        jumping = Input.GetKey(SettingsController.keyBinds["jump"]);
+        playerInput = controls.Player.Move.ReadValue<Vector2>();
+
+        //sprinting = Input.GetKey(SettingsController.keyBinds["sprint"]);
+        //jumping = Input.GetKey(SettingsController.keyBinds["jump"]);
     }
 
     private void OnTriggerStay(Collider other)
@@ -109,24 +154,5 @@ public class PlayerMovement : MonoBehaviour
         {
             return new Vector3();
         }
-    }
-    public void OnEnable()
-    {
-        if (controls == null)
-        {
-            controls = new PlayerControls();
-            //controls.Player.SetCallbacks(PlayerControls.IPlayerActions);
-        }
-        controls.Player.Enable();
-    }
-
-    public void OnDisable()
-    {
-        controls.Player.Disable();
-    }
-
-    public void OnMove(InputAction.CallbackContext context)
-    {
-
     }
 }
