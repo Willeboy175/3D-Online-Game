@@ -15,6 +15,7 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (SettingsController.keyBinds["forward"] == KeyCode.W && Input.GetKeyDown(SettingsController.keyBinds["forward"]))
         {
             print("forward");
@@ -43,6 +44,7 @@ public class InputController : MonoBehaviour
         {
             print("interact");
         }
+        */
     }
 
     //Returns float value using the right and left keybinds

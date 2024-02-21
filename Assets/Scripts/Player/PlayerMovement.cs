@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private bool grounded = false;
 
+    PlayerControls controls;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerInput = new Vector2(InputController.HorizontalAxis(), InputController.VerticalAxis());
-        playerInput.Normalize();
+        //playerInput = new Vector2(InputController.HorizontalAxis(), InputController.VerticalAxis());
+        //playerInput.Normalize();
 
         sprinting = Input.GetKey(SettingsController.keyBinds["sprint"]);
         jumping = Input.GetKey(SettingsController.keyBinds["jump"]);
@@ -107,5 +109,24 @@ public class PlayerMovement : MonoBehaviour
         {
             return new Vector3();
         }
+    }
+    public void OnEnable()
+    {
+        if (controls == null)
+        {
+            controls = new PlayerControls();
+            //controls.Player.SetCallbacks(PlayerControls.IPlayerActions);
+        }
+        controls.Player.Enable();
+    }
+
+    public void OnDisable()
+    {
+        controls.Player.Disable();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+
     }
 }
