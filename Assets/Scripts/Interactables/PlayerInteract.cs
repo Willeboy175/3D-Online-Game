@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -9,10 +10,28 @@ public class PlayerInteract : MonoBehaviour
     public Transform playerCamera;
     private PlayerUI playerUI;
 
+    private PlayerControls controls;
+    private InputAction look;
+
     // Start is called before the first frame update
     void Start()
     {
         playerUI = GetComponent<PlayerUI>();
+    }
+
+    void Awake()
+    {
+        controls = GetComponent<PlayerControls>();
+    }
+
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+        
     }
 
     // Update is called once per frame

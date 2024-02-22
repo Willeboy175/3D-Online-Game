@@ -21,11 +21,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool sprinting = false;
     private bool jumping = false;
-
-    [SerializeField]
     private bool grounded = false;
 
-    PlayerControls controls;
+    private PlayerControls controls;
+    private InputAction move;
+    private InputAction sprint;
+    private InputAction jump;
 
     // Start is called before the first frame update
     void Start()
@@ -39,53 +40,68 @@ public class PlayerMovement : MonoBehaviour
         controls.Player.Enable();
     }
 
-    public void OnEnable()
+    private void OnEnable()
     {
-        controls.Player.Enable();
+        move = controls.Player.Move;
+        sprint = controls.Player.Sprint;
+        jump = controls.Player.Jump;
 
-        controls.Player.Jump.performed += OnJump;
-        controls.Player.Sprint.performed += OnSprint;
+        move.Enable();
+        sprint.Enable();
+        jump.Enable();
+
+        sprint.started += OnSprint;
+        sprint.canceled += OnSprint;
+        jump.started += OnJump;
+        jump.canceled += OnJump;
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
-        controls.Player.Disable();
+        move.Disable();
+        sprint.Disable();
+        jump.Disable();
 
-        controls.Player.Jump.performed -= OnJump;
-        controls.Player.Sprint.performed -= OnSprint;
+        sprint.started -= OnSprint;
+        sprint.canceled -= OnSprint;
+        jump.started -= OnJump;
+        jump.canceled -= OnJump;
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    private void OnSprint(InputAction.CallbackContext context)
     {
-        jumping = !jumping;
-        Debug.Log("jump");
-    }
-
-    public void OnSprint(InputAction.CallbackContext context)
-    {
-        sprinting = !sprinting;
-
-        if (sprinting)
+        if (context.started)
         {
+            sprinting = true;
             Debug.Log("Start sprinting");
         }
 
-        if (sprinting == false)
+        if (context.canceled)
         {
+            sprinting = false;
             Debug.Log("Stop sprinting");
+        }
+    }
+
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            jumping = true;
+            Debug.Log("Start jumping");
+        }
+
+        if (context.canceled)
+        {
+            jumping = false;
+            Debug.Log("Stop jumping");
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //playerInput = new Vector2(InputController.HorizontalAxis(), InputController.VerticalAxis());
-        //playerInput.Normalize();
-
-        playerInput = controls.Player.Move.ReadValue<Vector2>();
-
-        //sprinting = Input.GetKey(SettingsController.keyBinds["sprint"]);
-        //jumping = Input.GetKey(SettingsController.keyBinds["jump"]);
+        playerInput = move.ReadValue<Vector2>();
     }
 
     private void OnTriggerStay(Collider other)
