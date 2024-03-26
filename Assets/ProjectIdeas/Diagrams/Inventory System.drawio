@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net" modified="2024-03-26T09:48:43.796Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="9E5ZjDcMpImNPLewgSFf" version="24.0.7" type="device">
+  <diagram name="Sida-1" id="GLDYWXwAomLIM1l3pJRb">
+    <mxGraphModel dx="1050" dy="565" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-1" value="PlayerInventory+" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-2" value="DynamicInventory+&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;AddItem()+&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-3" value="ItemInstance+&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ItemInstance()+&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-4" value="InstanceItem-Container+&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;TakeItem()+&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="160" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BG5LDXW-EnhDNjz3x6Cj-5" target="BG5LDXW-EnhDNjz3x6Cj-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="BG5LDXW-EnhDNjz3x6Cj-5" target="BG5LDXW-EnhDNjz3x6Cj-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-5" value="ItemData+&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ItemName+&lt;/div&gt;&lt;div&gt;Icon+&lt;/div&gt;&lt;div&gt;Model+&lt;/div&gt;&lt;div&gt;Description+&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-6" value="InventoryDisplay+&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;UpdateInventory()+&lt;/div&gt;&lt;div&gt;DropItem()+&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="240" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-7" value="ItemDisplay+&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;UpdateItemDisplay()+&lt;/div&gt;&lt;div&gt;DropFromInventory()+&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="330" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-8" value="Tool" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BG5LDXW-EnhDNjz3x6Cj-9" value="Crop" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net" modified="2024-03-26T10:16:10.131Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="pt6JlrOPpUy5FCf2kvOL" version="24.0.7" type="device">
+  <diagram name="Sida-1" id="f-1lBsihYEWqYt-dW9OJ">
+    <mxGraphModel dx="1050" dy="565" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2B3WvrwqbDnap0xETKlX-1" value="What needs to be saved&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Player&lt;/div&gt;&lt;div&gt;Items&lt;/div&gt;&lt;div&gt;Placables&lt;/div&gt;&lt;div&gt;Money&lt;/div&gt;&lt;div&gt;Unlockables&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="2B3WvrwqbDnap0xETKlX-2" value="Player&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Pos&lt;/div&gt;&lt;div&gt;Inventory&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="220" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2B3WvrwqbDnap0xETKlX-3" value="Items&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Pos&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2B3WvrwqbDnap0xETKlX-4" value="Placables&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Pos&lt;/div&gt;&lt;div&gt;Type&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="390" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2B3WvrwqbDnap0xETKlX-5" value="SaveSystem&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Save()&lt;/div&gt;&lt;div&gt;Load()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2B3WvrwqbDnap0xETKlX-6" value="ObjectContainer&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Float&lt;/div&gt;&lt;div&gt;Int&lt;/div&gt;&lt;div&gt;Bool&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

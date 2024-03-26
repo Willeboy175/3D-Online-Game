@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveSystem
+public class SaveSystem : MonoBehaviour
 {
     ObjectContainer container;
 
-    void Save<T>(string saveKey, T saveValue)
+    void Save()
     {
         
     }
 
-    void Load<T>(string saveKey)
+    void Load()
     {
         
     }

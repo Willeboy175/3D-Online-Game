@@ -21,7 +21,7 @@ public class PlayerInteract : MonoBehaviour
 
     void Awake()
     {
-        controls = GetComponent<PlayerControls>();
+        controls = new PlayerControls();
     }
 
     private void OnEnable()
