@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InventoryDisplay : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class InventoryDisplay : MonoBehaviour
     private void Update()
     {
         UpdateInventory();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            DropItem(0);
+        }
     }
 
     void UpdateInventory()
@@ -40,19 +46,21 @@ public class InventoryDisplay : MonoBehaviour
 
     public void DropItem(int itemIndex)
     {
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+
         //Creates a new object
         //Adds a rigidbody
         //Adds itemInstance to the instanceItemContainer
         //Instantiates gameobject with items model
-        GameObject droppedItem = new GameObject();
-        droppedItem.AddComponent<Rigidbody>();
-        droppedItem.AddComponent<InstanceItemContainer>().item = inventory.items[itemIndex];
-        GameObject itemModel = Instantiate(inventory.items[itemIndex].itemType.model, droppedItem.transform);
+        //GameObject droppedItem = new GameObject();
+        //droppedItem.AddComponent<Rigidbody>();
+        //droppedItem.AddComponent<InstanceItemContainer>().item = inventory.items[itemIndex];
+        GameObject itemModel = Instantiate(inventory.items[itemIndex].itemType.model, player.transform.position + player.transform.forward, player.transform.rotation);
 
         //Removes the item from the inventory
         inventory.items.RemoveAt(itemIndex);
 
         //Updates the inventory again
-        UpdateInventory();
+        //UpdateInventory();
     }
 }
