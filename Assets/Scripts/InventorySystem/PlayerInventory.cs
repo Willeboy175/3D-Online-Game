@@ -11,7 +11,8 @@ public class PlayerInventory : MonoBehaviour
     {
         if (other.TryGetComponent(out InstanceItemContainer foundItem))
         {
-            inventory.AddItem(foundItem.TakeItem());
+            inventory.AddItem(foundItem.item);
+            Destroy(foundItem.gameObject);
         }
     }
 }

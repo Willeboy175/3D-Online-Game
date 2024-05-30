@@ -57,8 +57,12 @@ public class InventoryDisplay : MonoBehaviour
         //droppedItem.AddComponent<InstanceItemContainer>().item = inventory.items[itemIndex];
         GameObject itemModel = Instantiate(inventory.items[itemIndex].itemType.model, player.transform.position + player.transform.forward, player.transform.rotation);
 
+        itemModel.AddComponent<Rigidbody>();
+        
         //Removes the item from the inventory
         inventory.items.RemoveAt(itemIndex);
+
+        print("Drop Item");
 
         //Updates the inventory again
         //UpdateInventory();
