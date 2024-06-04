@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,15 @@ public class Soil : Interactable
 
     protected override void Interact()
     {
-        Instantiate(crop, spawnPos);
+        if (PlayerSetup.isOffline)
+        {
+            Instantiate(crop, spawnPos);
+        }
+        else
+        {
+            PhotonNetwork.Instantiate("Crop", spawnPos.position, spawnPos.rotation);
+        }
+        
         Debug.Log("Interacted with " + gameObject.name);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSetup : MonoBehaviour
 {
     public bool offline = false;
+    public static bool isOffline;
     public PlayerMovement playerMovement;
     public PlayerInteract playerInteract;
     public PlayerUI playerUI;
@@ -12,6 +13,7 @@ public class PlayerSetup : MonoBehaviour
 
     void Start()
     {
+        isOffline = offline;
         if (offline)
         {
             IsLocalPlayer();
