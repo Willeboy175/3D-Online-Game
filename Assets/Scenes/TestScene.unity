@@ -475,6 +475,10 @@ PrefabInstance:
       propertyPath: lockCursor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6855870236251812532, guid: e477f47f5bab0ab4589d40837545b825, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7018793379405686642, guid: e477f47f5bab0ab4589d40837545b825, type: 3}
       propertyPath: m_Name
       value: Player
@@ -916,6 +920,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2788340334249938217, guid: 371e7272b9504d84788819dc31e4f08b, type: 3}
+      propertyPath: m_Name
+      value: InventoryPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788340334249938217, guid: 371e7272b9504d84788819dc31e4f08b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788340334249938217, guid: 371e7272b9504d84788819dc31e4f08b, type: 3}
+      propertyPath: m_TagString
+      value: InventoryPanel
+      objectReference: {fileID: 0}
     - target: {fileID: 3133205812342482383, guid: 371e7272b9504d84788819dc31e4f08b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1043,6 +1059,14 @@ PrefabInstance:
     - target: {fileID: 3735028613421220497, guid: 371e7272b9504d84788819dc31e4f08b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312428929537713364, guid: 371e7272b9504d84788819dc31e4f08b, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073994475279579914, guid: 371e7272b9504d84788819dc31e4f08b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6758292617540552983, guid: 371e7272b9504d84788819dc31e4f08b, type: 3}
       propertyPath: m_AnchorMax.y
